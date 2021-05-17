@@ -87,7 +87,7 @@ app.post('/registerUsers', async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error);
+        console.log("ERROR --",error);
     }
 })
 
