@@ -17,7 +17,6 @@ const DB = "urlShortner"
 
 app.use(cors());
 
-console.log("Hello  World !!!");
 
 function authenticate(req, res, next) {
     
@@ -43,9 +42,11 @@ function authenticate(req, res, next) {
     }
 }
 
-app.get('/', (req , res) => {
-    res.send("Hello World !!!")
-})
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
 
 app.get('/checkToken', authenticate, async (req, res) => {
     console.log("request.userId----2nd", req.userId)
