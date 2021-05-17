@@ -18,6 +18,7 @@ const DB = "urlShortner"
 
 
 function authenticate(req, res, next) {
+    console.log("Hello World !!!");
     if (req.headers.authorization) {
         try {
             let jwtValid = jwt.verify(req.headers.authorization, process.env.SECRET);
