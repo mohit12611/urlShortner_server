@@ -15,9 +15,9 @@ app.use(express.json())
 const URL = "mongodb+srv://mohit:user1234@cluster0.qzjia.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const DB = "urlShortner"
 
-
+console.log("Hello World !!!");
 function authenticate(req, res, next) {
-    console.log("Hello World !!!");
+    
     if (req.headers.authorization) {
         try {
             let jwtValid = jwt.verify(req.headers.authorization, process.env.SECRET);
