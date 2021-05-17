@@ -55,7 +55,7 @@ app.get('/',(req , res) => {
 app.get('/checkToken', authenticate, async (req, res) => {
     console.log("request.userId----2nd", req.userId)
     try {
-        let connection = await mongodb.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        let connection = await mongodb.connect(URL, { useUnifiedTopology: true });
         let db = connection.db(DB);
         let dataUrl = await db.collection("users").findOne({ _id: mongodb.ObjectID(req.userId) });
         await connection.close();
@@ -71,7 +71,7 @@ app.get('/checkToken', authenticate, async (req, res) => {
 
 app.post('/registerUsers', async (req, res) => {
     try {
-        let connection = await mongodb.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        let connection = await mongodb.connect(URL, { useUnifiedTopology: true });
         let db = connection.db(DB);
 
         let isEmailUnique = await db.collection("users").findOne({ email: req.body.email });
@@ -107,7 +107,7 @@ app.post('/registerUsers', async (req, res) => {
 app.post('/loginUser', async (req, res) => {
     try {
 
-        let connection = await mongodb.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        let connection = await mongodb.connect(URL, { useUnifiedTopology: true });
         let db = connection.db(DB);
 
         let user = await db.collection("users").findOne({ email: req.body.email });
@@ -143,7 +143,7 @@ app.post('/urls', async (req, res, next) => {
     try {
         let dataRecieved = req.body;
  //       console.log("dataRecieved---", dataRecieved);     {urlToAdd , _id}
-        let connection = await mongodb.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        let connection = await mongodb.connect(URL, { useUnifiedTopology: true });
         let db = connection.db(DB);
         await db.collection("users").updateOne({ _id: mongodb.ObjectID(dataRecieved._id) }, { $push: { links: { $each: [{ "longUrl": dataRecieved.urlToAdd, "shortUrl": shortId.generate() }] } } });
         let userData = await db.collection("users").findOne({_id : mongodb.ObjectID(dataRecieved._id)});
@@ -162,7 +162,7 @@ app.get("/:id/:shortUrl", async (req, res) => {
         let shortUrl = req.params.shortUrl;
         let id = req.params.id;
 //        console.log("req.params=====",req.params);     { id: '6080705d9fb4f95ec49583d1', shortUrl: 'wIwMIJdFR' }
-        let connection = await mongodb.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        let connection = await mongodb.connect(URL, { useUnifiedTopology: true });
         let db = connection.db(DB);
         let recievedUrl = await db.collection("users").findOne({ _id : mongodb.ObjectID(id)});
 //      console.log(recievedUrl);  recievedurl   is   User Data
