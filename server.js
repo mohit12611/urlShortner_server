@@ -9,11 +9,13 @@ const url = require('url');
 require("dotenv").config();
 
 
-app.use(cors());
+
 app.use(express.json())
 
 const URL = "mongodb+srv://mohit:user1234@cluster0.qzjia.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const DB = "urlShortner"
+
+app.use(cors());
 
 console.log("Hello  World !!!");
 
