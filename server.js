@@ -48,6 +48,10 @@ app.all('/', function(req, res, next) {
     next()
   });
 
+app.get('/',(req , res) => {
+    res.send("Hello World !!!");
+})
+
 app.get('/checkToken', authenticate, async (req, res) => {
     console.log("request.userId----2nd", req.userId)
     try {
