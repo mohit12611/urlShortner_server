@@ -16,6 +16,7 @@ const URL = "mongodb+srv://mohit:user1234@cluster0.qzjia.mongodb.net/myFirstData
 const DB = "urlShortner"
 
 console.log("Hello  World !!!");
+
 function authenticate(req, res, next) {
     
     if (req.headers.authorization) {
