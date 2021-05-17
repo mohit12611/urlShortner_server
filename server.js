@@ -168,5 +168,5 @@ app.get("/:id/:shortUrl", async (req, res) => {
 
 let PORT = (process.env.PORT || 5000);
 app.listen(PORT, () => {
-    console.log("listning on port" , PORT);
+    console.log("listning on port -" , PORT);
 });
