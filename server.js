@@ -122,7 +122,7 @@ app.post('/loginUser', async (req, res) => {
             })
         }
     } catch (error) {
-        console.log("ERROR--",error);
+        console.log("ERROR ----",error);
     }
 })
 
