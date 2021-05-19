@@ -49,7 +49,7 @@ function authenticate(req, res, next) {
 //   });
 
 app.get('/',(req , res) => {
-    res.redirect('/loginUser');
+    res.send("Hello World !!! other APIs for testing - /loginUser, /registerUsers")
 })
 
 app.get('/checkToken', authenticate, async (req, res) => {
