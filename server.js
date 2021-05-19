@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongodb = require("mongodb");
-const cors = require("cors");
+const cors = require('cors');
 const shortId = require("shortid");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs")
@@ -49,7 +49,7 @@ app.all('/', function(req, res, next) {
   });
 
 app.get('/',(req , res) => {
-    res.send("Hello World !!!");
+    res.redirect('/loginUser');
 })
 
 app.get('/checkToken', authenticate, async (req, res) => {
@@ -180,5 +180,5 @@ app.get("/:id/:shortUrl", async (req, res) => {
 
 let PORT = (process.env.PORT || 5000);
 app.listen(PORT, () => {
-    console.log("listning on port -" , PORT);
+    console.log("listening on port -" , PORT);
 });
