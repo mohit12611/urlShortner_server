@@ -42,11 +42,11 @@ function authenticate(req, res, next) {
     }
 }
 
-app.all('/', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://url-shortner-client.herokuapp.com/");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next()
-  });
+// app.all('/', function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "https://url-shortner-client.herokuapp.com/");
+//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//     next()
+//   });
 
 app.get('/',(req , res) => {
     res.redirect('/loginUser');
